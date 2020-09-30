@@ -61,7 +61,7 @@
 					},
 				swiperOptions: {
 					centeredSlides: true,
-					loop:true,
+					loop:false,
 					pagination: {
 						el: '.swiper-pagination'
 					},
@@ -94,7 +94,7 @@
 			Object.keys(this.AllList).forEach((key,myIndex) =>{
 				let myList = [];
 				let myTitle = [];
-				let index = myIndex +1;
+				let index = myIndex;
 				let Numindex = 0;
 				this.AllList[key].forEach((element,indexs) => {
 					myList.push(element.value)
@@ -113,11 +113,9 @@
 				let infoListDiv = document.getElementsByClassName('infoListDiv');
 				let divheight = infoListDiv[0].offsetHeight;
 				let chartHeight = (Numindex+1) * divheight;
-				tableChartdiv[n].offsetHeight = chartHeight;
-				// let divheight = this.$refs.infoListDiv.style.height;
+				tableChartdiv[n].style.height = chartHeight+'px';
 				console.log(tableChartdiv);
-				// console.log(divheight);
-				// let divheight = Numindex * document.getElementsByClassName('infoList')[0];
+				
 				let tableChart = this.$echarts.init(document.getElementsByClassName('tableChart')[n]);
 				let colorList = ['#ff6ab4','#fda409','#e2e237','#29f3e0','#5695f4','#a155ff','#ff6ab4','#fda409','#e2e237','#29f3e0','#5695f4','#a155ff'];
 				// tableChartdiv.css('height','');
