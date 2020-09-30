@@ -32,13 +32,30 @@ module.exports = {
               template:'public/cockpit.html',
               filename:'cockpit.html',
               title:'cockpit'
+          },
+          usage:{// 淮阴工学院驾驶舱之使用情况大数据总览入口
+            entry:'src/pages/usage/usage.js',
+              template:'public/usage.html',
+              filename:'usage.html',
+              title:'usage'
           }
+      },
+      devServer: {
+        proxy: {
+          '/api': {
+            target: 'http://localhost:9080/api/monitor/getdata',
+            ws: true,
+            changeOrigin: true
+          }
+        }
       },
   configureWebpack: {
     resolve: {
       alias: {
         "@": resolve("src"),
         "cockpit":resolve("src/components/cockpit"),
+        "usage":resolve("src/components/usage"),
+        "mycomponents":resolve("src/components/mycomponents"),
         "common":resolve("common")
       }
     },

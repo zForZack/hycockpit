@@ -13,7 +13,7 @@ Vue.prototype.$echarts = echarts
 // 引入axios
 import axios from "axios";
 Vue.prototype.$axios = axios;
-
+axios.defaults.baseURL = '/api'  //关键代码
 
 Vue.use(ElementUI);
 new Vue({
